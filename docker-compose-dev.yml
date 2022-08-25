@@ -18,7 +18,7 @@ services:
     image: 'redis:latest'
   api:
     build:
-      dockerfile: Dockerfile
+      dockerfile: Dockerfile.dev
       context: ./server
     volumes:
       - /app/node_modules
@@ -33,7 +33,7 @@ services:
       - PGPORT=5432
   worker:
     build:
-      dockerfile: Dockerfile
+      dockerfile: Dockerfile.dev
       context: ./worker
     volumes:
       - /app/node_modules
@@ -43,7 +43,7 @@ services:
       - REDIS_PORT=6379
   client:
     build:
-      dockerfile: Dockerfile
+      dockerfile: Dockerfile.dev
       context: ./client
     volumes:
       - /app/node_modules
