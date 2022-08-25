@@ -1,7 +1,6 @@
 FROM node:18-alpine3.15 as builder
 WORKDIR '/app'
 COPY ./package.json .
-COPY ./package-lock.json .
 RUN npm config set strict-ssl false
 RUN npm install --silent
 COPY . .
